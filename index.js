@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 
 const dir = './memes';
 fs.mkdir(dir, (err) => {
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (dir) return;
   if (err) {
     throw err;
@@ -17,17 +18,17 @@ const response = await fetch(
 const body = await response.text();
 const $ = cheerio.load(body);
 
-let div = $('section > div');
-// recieve all parents of images
-let srcs = [];
+const div = $('section > div');
+// receive all parents of images
+const src = [];
 div.each(function () {
   // add this value to the array
-  srcs.push($(this).find('img').attr('src'));
+  src.push($(this).find('img').attr('src'));
 });
 
-const slice = srcs.slice(0, 10);
+const slice = src.slice(0, 10);
 
-let buffers = [];
+// let buffers = [];
 
 for (let i = 0; i < slice.length; i++) {
   const imageData = await fetch(slice[i]);
@@ -35,5 +36,5 @@ for (let i = 0; i < slice.length; i++) {
   const arrayBuffer = await imageData.arrayBuffer();
 
   const buffer = Buffer.from(arrayBuffer);
-  fs.writeFile(`./memes/0${i + 1}.jpg`, buffer, function (err) {});
+  fs.writeFile(`./memes/0${i + 1}.jpg`, buffer, function () {});
 }
