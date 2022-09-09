@@ -4,7 +4,8 @@ import fetch from 'node-fetch';
 
 const dir = './memes';
 fs.mkdir(dir, (err) => {
-  if (dir) return;
+  if (dir.length) return;
+
   if (err) {
     throw err;
   }
