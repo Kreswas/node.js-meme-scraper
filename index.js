@@ -4,7 +4,6 @@ import fetch from 'node-fetch';
 
 const dir = './memes';
 fs.mkdir(dir, (err) => {
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (dir) return;
   if (err) {
     throw err;
