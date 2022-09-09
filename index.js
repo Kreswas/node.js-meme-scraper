@@ -7,9 +7,7 @@ if (fs.existsSync('./memes')) {
   console.log('File already exists');
 }
 fs.mkdir(dir, (err) => {
-  //  if (fs.existsSync('./memes')) return;
   if (err) {
-    // throw err;
   } else {
     console.log('directory created');
   }
@@ -30,8 +28,6 @@ div.each(function () {
 });
 
 const slice = src.slice(0, 10);
-
-// let buffers = [];
 
 for (let i = 0; i < slice.length; i++) {
   const imageData = await fetch(slice[i]);
