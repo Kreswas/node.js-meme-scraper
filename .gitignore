@@ -6,5 +6,5 @@ yarn-error.log*
 memes/
 .eslintcache
 *.tsbuildinfo
-
+tr.js
 *.tsbuildinfo

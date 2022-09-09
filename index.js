@@ -3,13 +3,16 @@ import * as cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
 const dir = './memes';
+if (fs.existsSync('./memes')) {
+  console.log('File already exists');
+}
 fs.mkdir(dir, (err) => {
-  if (dir.length) return;
-
+  //  if (fs.existsSync('./memes')) return;
   if (err) {
-    throw err;
+    // throw err;
+  } else {
+    console.log('directory created');
   }
-  console.log('directory created');
 });
 
 const response = await fetch(
